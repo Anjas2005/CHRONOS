@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0a4s4tw1hcfd"]
+
+[ext_resource type="Texture2D" uid="uid://b5oic1kmql53" path="res://space_background_pack/layers/parallax-space-backgound.png" id="1_43o5u"]
+[ext_resource type="Texture2D" uid="uid://bb6jv4kst50ax" path="res://space_background_pack/layers/parallax-space-far-planets.png" id="2_2cjow"]
+[ext_resource type="Texture2D" uid="uid://bl8e0iagepe3w" path="res://space_background_pack/layers/parallax-space-stars.png" id="3_4oawh"]
+
+[node name="BG" type="Node2D"]
+
+[node name="far_ground" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 0)
+
+[node name="Parallax-space-backgound" type="Sprite2D" parent="far_ground"]
+position = Vector2(576, 324)
+scale = Vector2(4.23529, 4.05)
+texture = ExtResource("1_43o5u")
+
+[node name="far_planet" type="Parallax2D" parent="."]
+
+[node name="Parallax-space-far-planets" type="Sprite2D" parent="far_planet"]
+position = Vector2(580.6, 320)
+scale = Vector2(4.20147, 4.05)
+texture = ExtResource("2_2cjow")
+
+[node name="near_stars" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(100, 0)
+repeat_times = 2
+
+[node name="Parallax-space-stars" type="Sprite2D" parent="near_stars"]
+position = Vector2(579.41, 322.384)
+scale = Vector2(4.21022, 3.9702)
+texture = ExtResource("3_4oawh")

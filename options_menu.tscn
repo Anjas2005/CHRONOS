@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjoktqg7slxlt"]
+
+[ext_resource type="Script" path="res://options_menu.gd" id="1_vota6"]
+[ext_resource type="PackedScene" uid="uid://b0a4s4tw1hcfd" path="res://bg.tscn" id="2_8gj4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_missr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xg0o"]
+bg_color = Color(0.615829, 0.615829, 0.615829, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+shadow_color = Color(0, 0, 0, 0.627451)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4px3c"]
+bg_color = Color(0, 0, 0, 0.376471)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+shadow_color = Color(0, 0, 0, 0.627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61lt0"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+shadow_color = Color(0, 0, 0, 0.627451)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vota6")
+
+[node name="BG" parent="." instance=ExtResource("2_8gj4f")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -68.0
+offset_right = 256.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.25
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_missr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2xg0o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4px3c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_61lt0")
+text = "Volume"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_missr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2xg0o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4px3c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_61lt0")
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
